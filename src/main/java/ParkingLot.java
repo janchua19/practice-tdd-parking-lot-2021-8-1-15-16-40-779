@@ -3,7 +3,6 @@ public class ParkingLot {
 
     public ParkingTicket park(Car car) {
 
-        //return new ParkingTicket();
-        return null;
+        return new ParkingTicket();
     }
 }
