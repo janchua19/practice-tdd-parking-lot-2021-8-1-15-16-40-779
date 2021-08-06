@@ -24,7 +24,7 @@
     When fetch the car  
     Then return no car  
 
-[] Case5
+[] Case6
     Given a parking lot but no space available  
     When park the car  
     Then return no parking ticket 
