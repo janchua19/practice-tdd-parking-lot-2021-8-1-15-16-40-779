@@ -10,9 +10,9 @@
     Then return a parked car  
 
 [] Case3
-    Given a parking lot and a used ticket  
-    When fetch the car  
-    Then return a no car  
+    Given a parking lot with two ticket and two parking tickets  
+    When fetch the car
+    Then return the right car  
 
 [] Case4
     Given a parking lot and a wrong ticket  
