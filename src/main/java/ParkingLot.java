@@ -11,11 +11,6 @@ public class ParkingLot {
     }
 
     public Car fetch(ParkingTicket parkingTicket) {
-        //if(!parkingTicket.isUsedTicket()) {
-        //    return parkedPosition.remove(parkingTicket);
-        //}
-        //else {
-            return parkedPosition.get(parkingTicket);
-        //}
+        return parkedPosition.remove(parkingTicket);
     }
 }

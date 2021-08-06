@@ -79,7 +79,6 @@ public class ParkingLotTest {
         Car actualSecondCar = parkingLot.fetch(usedTicket);
 
         //then
-        assertEquals(car, actualFirstCar);
         assertNull(actualSecondCar);
     }
 }
