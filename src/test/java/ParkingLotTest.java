@@ -50,16 +50,36 @@ public class ParkingLotTest {
         assertEquals(edwardCar, edwardActualCar);
     }
 
-@Test
-public void should_return_no_car_when_fetch_given_a_parking_lot_and_wrong_parking_ticket (){
-    //given
-    ParkingLot parkingLot = new ParkingLot();
-    ParkingTicket wrongTicket = new ParkingTicket();
-
-    //when
+    @Test
+    public void should_return_no_car_when_fetch_given_a_parking_lot_and_wrong_parking_ticket () {
+        //given
+        ParkingLot parkingLot = new ParkingLot();
+        ParkingTicket wrongTicket = new ParkingTicket();
+        //when
     Car actualCar1 = parkingLot.fetch(wrongTicket);
 
     //then
     assertNull(actualCar1);
-}
+    }
+
+//    Given a parking lot and used ticket
+//    When fetch the car
+//    Then return no car
+
+    @Test
+    public void should_return_no_car_when_fetch_given_a_parking_lot_and_used_parking_ticket () {
+        //given
+        ParkingLot parkingLot = new ParkingLot();
+        ParkingTicket usedTicket = new ParkingTicket();
+        Car car = new Car();
+        Car actualFirstCar = parkingLot.fetch(usedTicket);
+
+
+        //when
+        Car actualSecondCar = parkingLot.fetch(usedTicket);
+
+        //then
+        assertEquals(car, actualFirstCar);
+        assertNull(actualSecondCar);
+    }
 }

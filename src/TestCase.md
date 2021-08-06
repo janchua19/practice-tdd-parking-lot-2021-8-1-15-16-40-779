@@ -14,7 +14,7 @@
     When fetch the car
     Then return the right car  
 
-[] Case4
+[X] Case4
     Given a parking lot and a wrong ticket  
     When customer fetch the car  
     Then return no car
