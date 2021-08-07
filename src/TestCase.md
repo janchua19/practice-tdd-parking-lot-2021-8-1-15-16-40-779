@@ -32,7 +32,7 @@
 # story 2
 [X] Case1
     Given a parking lot and unrecognized ticket  
-    When park the car  
+    When fetch the car  
     Then return no car with error unrecognized parking ticket  
 
 [] Case2
