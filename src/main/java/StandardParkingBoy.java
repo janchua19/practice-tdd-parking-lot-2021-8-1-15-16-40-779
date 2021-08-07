@@ -8,7 +8,9 @@ public class StandardParkingBoy {
     ParkingLot availableSlot = null;
 
     public StandardParkingBoy (ParkingLot parkingLot){
-        this.parkingLot = parkingLot;
+        this(new ArrayList<ParkingLot>(){{
+            add(parkingLot);
+        }});
     }
 
     public StandardParkingBoy (List<ParkingLot> parkingLots){
