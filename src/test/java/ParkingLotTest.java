@@ -56,26 +56,25 @@ public class ParkingLotTest {
         ParkingLot parkingLot = new ParkingLot();
         ParkingTicket wrongTicket = new ParkingTicket();
         //when
-    Car actualCar1 = parkingLot.fetch(wrongTicket);
+        Car actualCar1 = parkingLot.fetch(wrongTicket);
 
-    //then
-    assertNull(actualCar1);
+        //then
+        assertNull(actualCar1);
     }
 
     @Test
     public void should_return_no_car_when_fetch_given_a_parking_lot_and_used_parking_ticket () {
         //given
         ParkingLot parkingLot = new ParkingLot();
-        ParkingTicket usedTicket = new ParkingTicket();
-        Car car = new Car();
-        Car actualFirstCar = parkingLot.fetch(usedTicket);
+        ParkingTicket parkingTicket = new ParkingTicket();
+        parkingLot.fetch(parkingTicket);
 
 
         //when
-        Car actualSecondCar = parkingLot.fetch(usedTicket);
+        Car fetchedCar = parkingLot.fetch(parkingTicket);
 
         //then
-        assertNull(actualSecondCar);
+        assertNull(fetchedCar);
     }
 
     @Test
@@ -83,11 +82,7 @@ public class ParkingLotTest {
         //given
         ParkingLot parkingLot = new ParkingLot();
         Car car = new Car();
-        int capacity = 10;
-
-        for(int counter = 0; counter < capacity; counter++){
-            parkingLot.park(new Car());
-        }
+        parkingLot.park(new Car());
 
 
         //when
@@ -95,5 +90,18 @@ public class ParkingLotTest {
 
         //then
         assertNull(parkingTicket);
+    }
+
+    @Test
+    public void should_return_no_car_with_error_unrecognized_parking_ticket_when_park_given_a_parking_lot_and_unrecognized_ticket () {
+        //given
+        ParkingLot parkingLot = new ParkingLot();
+        ParkingTicket unrecognizedParkingTicket = new ParkingTicket();
+
+        //when
+        Exception exception = assertThrows(UnrecognizedParkingTicketException.class, () -> parkingLot.fetch(unrecognizedParkingTicket));
+
+        //then
+        assertEquals("Unrecognized parking ticket.", exception.getMessage());
     }
 }
