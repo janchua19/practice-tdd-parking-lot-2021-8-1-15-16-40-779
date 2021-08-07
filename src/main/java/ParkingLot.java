@@ -34,15 +34,6 @@ public class ParkingLot {
     public Car fetch(ParkingTicket parkingTicket){
         car = parkedPosition.get(parkingTicket);
         ticket = ticketList.contains(car) ? null : parkedPosition.get(parkingTicket);
-//       THIS BLOCK OF CODES ARE FOR STORY 1 CASE 4 AND 5 (IF YOU WISH TO MAKE IT RUN COMMENT THE REMAINING CODES BELOW AND UNCOMMENT THIS BLOCK
-//        if(ticket == null)
-//        {
-//            return null;
-//        }
-//        else {
-//            ticketList.add(car);
-//        }
-//        return parkedPosition.get(parkingTicket);
 
         if(isUnrecognizedTicket(parkingTicket))
         {
