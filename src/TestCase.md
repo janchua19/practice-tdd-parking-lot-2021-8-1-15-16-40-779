@@ -46,7 +46,7 @@
     Then return no car with error no available position
 
 # Story 3
-[] Case1
+[X] Case1
 Given a parking lot and a standard parking boy, and a car  
 When park the car  
 Then return a parking ticket
