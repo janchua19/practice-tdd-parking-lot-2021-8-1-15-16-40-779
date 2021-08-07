@@ -35,12 +35,12 @@
     When fetch the car  
     Then return no car with error unrecognized parking ticket  
 
-[] Case2
+[X] Case2
     Given a parking lot and used ticket  
     When fetch the car  
     Then return no car with error unrecognized parking ticket 
 
-[] Case3
+[X] Case3
     Given a parking lot and without any position and car  
     When park the car  
     Then return no car with error no available position

@@ -76,21 +76,21 @@ public class ParkingLotTest {
 //        //then
 //        assertNull(fetchedCar);
 //    }
-
-    @Test
-    public void should_return_null_when_park_given_a_parking_lot_without_any_position_available () {
-        //given
-        ParkingLot parkingLot = new ParkingLot(1);
-        Car car = new Car();
-        parkingLot.park(new Car());
-
-
-        //when
-        ParkingTicket parkingTicket = parkingLot.park(car);
-
-        //then
-        assertNull(parkingTicket);
-    }
+//
+//    @Test
+//    public void should_return_null_when_park_given_a_parking_lot_without_any_position_available () {
+//        //given
+//        ParkingLot parkingLot = new ParkingLot(1);
+//        Car car = new Car();
+//        parkingLot.park(new Car());
+//
+//
+//        //when
+//        ParkingTicket parkingTicket = parkingLot.park(car);
+//
+//        //then
+//        assertNull(parkingTicket);
+//    }
 
     @Test
     public void should_return_no_car_with_error_unrecognized_parking_ticket_when_fetch_given_a_parking_lot_and_unrecognized_ticket () {
@@ -126,7 +126,6 @@ public class ParkingLotTest {
         ParkingLot parkingLot = new ParkingLot(1);
         Car car = new Car();
         parkingLot.park(new Car());
-
 
         //when
         Exception exception = assertThrows(NoAvailablePosition.class, () -> parkingLot.park(car));

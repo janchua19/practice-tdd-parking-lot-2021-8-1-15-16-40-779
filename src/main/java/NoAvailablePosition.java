@@ -1,6 +1,6 @@
-public class NoAvailablePosition extends RuntimeException{
-    public String getMessage()
-    {
-        return null;
+public class NoAvailablePosition extends RuntimeException {
+    @Override
+    public String getMessage() {
+        return "No available position.";
     }
 }
