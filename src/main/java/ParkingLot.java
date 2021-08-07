@@ -34,34 +34,26 @@ public class ParkingLot {
     public Car fetch(ParkingTicket parkingTicket){
         car = parkedPosition.get(parkingTicket);
         ticket = ticketList.contains(car) ? null : parkedPosition.get(parkingTicket);
+//       THIS BLOCK OF CODES ARE FOR STORY 1 CASE 4 AND 5 (IF YOU WISH TO MAKE IT RUN COMMENT THE REMAINING CODES BELOW AND UNCOMMENT THIS BLOCK
+//        if(ticket == null)
+//        {
+//            return null;
+//        }
+//        else {
+//            ticketList.add(car);
+//        }
+//        return parkedPosition.get(parkingTicket);
 
-        if(ticket == null)
+        if(isUnrecognizedTicket(parkingTicket))
         {
-            return null;
+            throw new UnrecognizedParkingTicketException();
         }
-        else {
-            ticketList.add(car);
-        }
-
-        return parkedPosition.get(parkingTicket);
+        final Car car = parkedPosition.get(parkingTicket);
+        parkedPosition.remove(parkingTicket);
+        return car;
     }
 
-
-//    private Car car;
-//    private Map<ParkingTicket, Car> parkedPosition = new HashMap<>();
-//    private int occupiedSlot = 0;
-//    private final int maximumCapacity = 10;
-//
-//    public ParkingTicket park(Car car) {
-//        if(maximumCapacity < occupiedSlot) {
-//            ParkingTicket parkingTicket = new ParkingTicket();
-//            parkedPosition.put(parkingTicket, car);
-//            return parkingTicket;
-//        }
-//        return null;
-//    }
-//
-//    public Car fetch(ParkingTicket parkingTicket) {
-//        return parkedPosition.remove(parkingTicket);
-//    }
+    private boolean isUnrecognizedTicket(ParkingTicket parkingTicket) {
+        return !parkedPosition.containsKey(parkingTicket);
+    }
 }

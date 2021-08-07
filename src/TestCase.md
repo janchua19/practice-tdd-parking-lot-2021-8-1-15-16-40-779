@@ -30,7 +30,7 @@
     Then return no parking ticket 
 
 # story 2
-[] Case1
+[X] Case1
     Given a parking lot and unrecognized ticket  
     When park the car  
     Then return no car with error unrecognized parking ticket  

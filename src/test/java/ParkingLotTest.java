@@ -49,33 +49,33 @@ public class ParkingLotTest {
         assertEquals(janCar, janActualCar);
         assertEquals(edwardCar, edwardActualCar);
     }
-
-    @Test
-    public void should_return_no_car_when_fetch_given_a_parking_lot_and_wrong_parking_ticket () {
-        //given
-        ParkingLot parkingLot = new ParkingLot();
-        ParkingTicket wrongTicket = new ParkingTicket();
-        //when
-        Car actualCar1 = parkingLot.fetch(wrongTicket);
-
-        //then
-        assertNull(actualCar1);
-    }
-
-    @Test
-    public void should_return_no_car_when_fetch_given_a_parking_lot_and_used_parking_ticket () {
-        //given
-        ParkingLot parkingLot = new ParkingLot();
-        ParkingTicket parkingTicket = new ParkingTicket();
-        parkingLot.fetch(parkingTicket);
-
-
-        //when
-        Car fetchedCar = parkingLot.fetch(parkingTicket);
-
-        //then
-        assertNull(fetchedCar);
-    }
+//    THIS IS CONFLICT WITH EXCEPTION HANDLING FOR STORY 2 CASE 1 (IF YOU WISH TO RUN THIS PLS UNCOMMENT ALSO BLOCK OF CODES IN PARKING LOT UNDER FETCH())
+//    @Test
+//    public void should_return_no_car_when_fetch_given_a_parking_lot_and_wrong_parking_ticket () {
+//        //given
+//        ParkingLot parkingLot = new ParkingLot();
+//        ParkingTicket wrongTicket = new ParkingTicket();
+//        //when
+//        Car actualCar1 = parkingLot.fetch(wrongTicket);
+//
+//        //then
+//        assertNull(actualCar1);
+//    }
+//
+//    @Test
+//    public void should_return_no_car_when_fetch_given_a_parking_lot_and_used_parking_ticket () {
+//        //given
+//        ParkingLot parkingLot = new ParkingLot();
+//        ParkingTicket parkingTicket = new ParkingTicket();
+//        parkingLot.fetch(parkingTicket);
+//
+//
+//        //when
+//        Car fetchedCar = parkingLot.fetch(parkingTicket);
+//
+//        //then
+//        assertNull(fetchedCar);
+//    }
 
     @Test
     public void should_return_null_when_park_given_a_parking_lot_without_any_position_available () {
@@ -92,16 +92,16 @@ public class ParkingLotTest {
         assertNull(parkingTicket);
     }
 
-//    @Test
-//    public void should_return_no_car_with_error_unrecognized_parking_ticket_when_park_given_a_parking_lot_and_unrecognized_ticket () {
-//        //given
-//        ParkingLot parkingLot = new ParkingLot();
-//        ParkingTicket unrecognizedParkingTicket = new ParkingTicket();
-//
-//        //when
-//        Exception exception = assertThrows(UnrecognizedParkingTicketException.class, () -> parkingLot.fetch(unrecognizedParkingTicket));
-//
-//        //then
-//        assertEquals("Unrecognized parking ticket.", exception.getMessage());
-//    }
+    @Test
+    public void should_return_no_car_with_error_unrecognized_parking_ticket_when_park_given_a_parking_lot_and_unrecognized_ticket () {
+        //given
+        ParkingLot parkingLot = new ParkingLot();
+        ParkingTicket unrecognizedParkingTicket = new ParkingTicket();
+
+        //when
+        Exception exception = assertThrows(UnrecognizedParkingTicketException.class, () -> parkingLot.fetch(unrecognizedParkingTicket));
+
+        //then
+        assertEquals("Unrecognized parking ticket.", exception.getMessage());
+    }
 }
