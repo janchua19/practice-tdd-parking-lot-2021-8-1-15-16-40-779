@@ -50,7 +50,7 @@ public class StandardParkingBoyTest {
         Car edwardActualCar = standardParkingBoy.fetch(edwardParkingTicket);
 
         //then
-        assertEquals(janCar, null);
-        assertEquals(edwardCar, null);
+        assertEquals(janCar, janActualCar);
+        assertEquals(edwardCar, edwardActualCar);
     }
 }
