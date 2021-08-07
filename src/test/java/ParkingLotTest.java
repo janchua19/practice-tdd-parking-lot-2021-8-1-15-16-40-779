@@ -82,11 +82,12 @@ public class ParkingLotTest {
     {
         //given
         ParkingLot parkingLot = new ParkingLot(1);
+        StandardParkingBoy standardParkingBoy = new StandardParkingBoy(parkingLot);
         Car car = new Car();
         parkingLot.park(new Car());
 
         //when
-        Exception exception = assertThrows(NoAvailablePosition.class, () -> parkingLot.park(car));
+        Exception exception = assertThrows(NoAvailablePosition.class, () -> standardParkingBoy.park(car));
 
         //then
         assertEquals("No available position.", exception.getMessage());
