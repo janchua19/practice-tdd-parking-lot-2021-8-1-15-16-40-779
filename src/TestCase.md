@@ -71,7 +71,38 @@ Given a parking lot, a standard parking boy, and used parking ticket
 When fetch the car  
 Then return nothing with error message Unrecognized parking ticket
 
-[] Case6
+[X] Case6
 Given a parking lot with no  position, a standard parking boy, and a car  
+When park the car  
+Then return nothing with error message No available position
+
+# Story 4
+[] Case1
+Given a standard parking boy, who manages two parking lots both with available position, and a car  
+When park the car  
+Then the car will be parked to the first parking lot
+
+[] Case2
+Given a standard parking boy, who manage two parking lots, first us full and second with available position and a car  
+When park the car  
+Then the car will be parked to second parking lot
+
+[] Case3
+Given a standard parking boy, who manage two parking lots, both with a parked car and two parking ticket  
+When fetch the car twice  
+Then return the right car with each ticket
+
+[] Case4
+Given a standard parking boy, who manage two parking lots, and an unrecognized ticket  
+When customer fetch the car  
+Then return nothing with error message Unrecognized parking ticket
+
+[] Case5
+Given a standard parking boy, who manage two parking lots, and an used ticket   
+When fetch the car  
+Then return nothing with error message Unrecognized parking ticket
+
+[] Case6
+Given a standard parking boy, who manage two parking lots, both without available position and a car
 When park the car  
 Then return nothing with error message No available position
