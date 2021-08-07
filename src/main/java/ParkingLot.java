@@ -8,11 +8,11 @@ public class ParkingLot {
     private Car car = new Car();
     private Car ticket = new Car();
     private int capacity;
-    private final int DEFAULT_CAPACITY = 10;
+    private final int MAX_CAPACITY = 10;
 
     public ParkingLot()
     {
-        this.capacity = DEFAULT_CAPACITY;
+        this.capacity = MAX_CAPACITY;
     }
 
     public ParkingLot(int capacity){
