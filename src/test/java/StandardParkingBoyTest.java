@@ -72,10 +72,11 @@ public class StandardParkingBoyTest {
     {
         //given
         ParkingLot parkingLot = new ParkingLot();
+        StandardParkingBoy standardParkingBoy = new StandardParkingBoy(parkingLot);
         ParkingTicket usedParkingTicket = new ParkingTicket();
 
         //when
-        Exception exception = assertThrows(UnrecognizedParkingTicketException.class, () -> parkingLot.fetch(usedParkingTicket));
+        Exception exception = assertThrows(UnrecognizedParkingTicketException.class, () -> standardParkingBoy.fetch(usedParkingTicket));
 
         //then
         assertEquals("Unrecognized parking ticket.", exception.getMessage());
