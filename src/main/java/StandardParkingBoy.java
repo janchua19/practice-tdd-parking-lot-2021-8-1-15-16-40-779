@@ -6,7 +6,7 @@ public class StandardParkingBoy {
     }
 
     public ParkingTicket park(Car car){
-        return  null;
+        return  parkingLot.park(car);
     }
 
     public Car fetch(ParkingTicket parkingTicket){
