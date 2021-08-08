@@ -144,26 +144,33 @@ public class StandardParkingBoyTest {
         assertEquals(car, actualCar);
     }
 
-//    @Test
-//    public void should_return_the_right_car_with_each_ticket_ ()
-//    {
-//        //given
-//        Car car = new Car();
-//        ParkingLot parkingLot1 = new ParkingLot(1);
-//        parkingLot1.park(new Car());
-//        ParkingLot parkingLot2 = new ParkingLot();
-//        ArrayList<ParkingLot> parkingLots = new ArrayList<>();
-//        parkingLots.add(parkingLot1);
-//        parkingLots.add(parkingLot2);
-//
-//        StandardParkingBoy standardParkingBoy = new StandardParkingBoy(parkingLots);
-//
-//        //when
-//        ParkingTicket parkingTicket = standardParkingBoy.park(car);
-//
-//
-//        //then
-//        Car actualCar = parkingLot2.fetch(parkingTicket);
-//        assertEquals(car, actualCar);
-//    }
+    @Test
+    public void should_return_the_right_car_with_each_ticket_when_fetch_the_car_twice_given_a_standard_parking_boy_who_manage_two_parking_lots_both_with_a_parked_car_and_two_parking_ticket ()
+    {
+        //given
+        Car car1 = new Car();
+        Car car2 = new Car();
+
+        ParkingLot parkingLot1 = new ParkingLot(1);
+        ParkingLot parkingLot2 = new ParkingLot(1);
+
+        ArrayList<ParkingLot> parkingLots = new ArrayList<>();
+
+        parkingLots.add(parkingLot1);
+        parkingLots.add(parkingLot2);
+
+        StandardParkingBoy standardParkingBoy = new StandardParkingBoy(parkingLots);
+
+        ParkingTicket parkingTicket1 = standardParkingBoy.park(car1);
+        ParkingTicket parkingTicket2 = standardParkingBoy.park(car2);
+
+        //when
+        Car actualCar1 = standardParkingBoy.fetch(parkingTicket1);
+        Car actualCar2 = standardParkingBoy.fetch(parkingTicket2);
+
+        //then
+        assertEquals(car1, actualCar1);
+        assertEquals(car2, actualCar2);
+
+    }
 }

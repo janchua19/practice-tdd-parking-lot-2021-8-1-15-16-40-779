@@ -4,8 +4,6 @@ import java.util.List;
 public class StandardParkingBoy {
     private ParkingLot parkingLot;
     private List<ParkingLot> parkingLots = new ArrayList<>();
-    private final int MAXIMUM_CAPACITY = 10;
-    ParkingLot availableSlot = null;
 
     public StandardParkingBoy (ParkingLot parkingLot){
         this(new ArrayList<ParkingLot>(){{
@@ -31,7 +29,9 @@ public class StandardParkingBoy {
     public Car fetch(ParkingTicket parkingTicket){
         for (ParkingLot parkingLot: parkingLots) {
             try{
-                return parkingLot.fetch(parkingTicket);
+                if(!parkingLot.isUnrecognizedTicket(parkingTicket)) {
+                    return parkingLot.fetch(parkingTicket);
+                }
             }catch (UnrecognizedParkingTicketException e){
 
             }

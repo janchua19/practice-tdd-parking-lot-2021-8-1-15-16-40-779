@@ -5,7 +5,6 @@ import java.util.Map;
 public class ParkingLot {
     private Map<ParkingTicket, Car> parkedPosition = new HashMap<>();
     private Car car = new Car();
-    private Car ticket = new Car();
     private int capacity;
     private final int MAX_CAPACITY = 10;
 
@@ -43,7 +42,7 @@ public class ParkingLot {
         return car;
     }
 
-    private boolean isUnrecognizedTicket(ParkingTicket parkingTicket) {
+    public boolean isUnrecognizedTicket(ParkingTicket parkingTicket) {
         return !parkedPosition.containsKey(parkingTicket);
     }
 }
