@@ -179,8 +179,8 @@ public class StandardParkingBoyTest {
     @Test
     public void should_return_nothing_with_error_message_unrecognized_parking_ticket_when_fetch_given_standard_parking_boy_who_manage_two_parking_lots_and_an_unrecognized_ticket (){
         //given
-        ParkingLot parkingLot1 = new ParkingLot(1);
-        ParkingLot parkingLot2 = new ParkingLot(1);
+        ParkingLot parkingLot1 = new ParkingLot();
+        ParkingLot parkingLot2 = new ParkingLot();
 
         ArrayList<ParkingLot> parkingLots = new ArrayList<>();
 
@@ -201,8 +201,8 @@ public class StandardParkingBoyTest {
     @Test
     public void should_return_nothing_with_error_message_unrecognized_parking_ticket_when_fetch_given_a_standard_parking_boy_who_manage_two_parking_lots_and_a_used_ticket (){
         //given
-        ParkingLot parkingLot1 = new ParkingLot(1);
-        ParkingLot parkingLot2 = new ParkingLot(1);
+        ParkingLot parkingLot1 = new ParkingLot();
+        ParkingLot parkingLot2 = new ParkingLot();
 
         ArrayList<ParkingLot> parkingLots = new ArrayList<>();
 
@@ -219,5 +219,28 @@ public class StandardParkingBoyTest {
 
         //then
         assertEquals("Unrecognized parking ticket.", exception.getMessage());
+    }
+
+    @Test
+    public void should_return_nothing_with_error_message_no_available_position_when_park_given_a_standard_parking_boy_who_manage_two_parking_lots_both_with_no_available_position_and_a_car(){
+        //given
+        Car car = new Car();
+        ParkingLot parkingLot1 = new ParkingLot(1);
+        parkingLot1.park(new Car());
+        ParkingLot parkingLot2 = new ParkingLot(1);
+        parkingLot2.park(new Car());
+
+        ArrayList<ParkingLot> parkingLots = new ArrayList<>();
+
+        parkingLots.add(parkingLot1);
+        parkingLots.add(parkingLot2);
+
+        StandardParkingBoy standardParkingBoy = new StandardParkingBoy(parkingLots);
+
+        //when
+        Exception exception = assertThrows(NoAvailablePosition.class, () -> standardParkingBoy.park(car));
+
+        //then
+        assertEquals("No available position.", exception.getMessage());
     }
 }
