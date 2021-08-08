@@ -87,12 +87,12 @@ Given a standard parking boy, who manage two parking lots, first us full and sec
 When park the car  
 Then the car will be parked to second parking lot
 
-[] Case3
+[X] Case3
 Given a standard parking boy, who manage two parking lots, both with a parked car and two parking ticket  
 When fetch the car twice  
 Then return the right car with each ticket
 
-[] Case4
+[X] Case4
 Given a standard parking boy, who manage two parking lots, and an unrecognized ticket  
 When customer fetch the car  
 Then return nothing with error message Unrecognized parking ticket
