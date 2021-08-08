@@ -1,5 +1,6 @@
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class SmartParkingBoyTest {
@@ -15,5 +16,20 @@ public class SmartParkingBoyTest {
 
         //then
         assertNotNull(parkingTicket);
+    }
+
+    @Test
+    public void should_return_parked_car_when_fetch_given_a_parking_lot_with_a_parked_car_a_smart_parking_boy_and_a_parking_ticket (){
+        //given
+        ParkingLot parkingLot = new ParkingLot();
+        Car car = new Car();
+        ParkingTicket parkingTicket = parkingLot.park(car);
+        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLot);
+
+        //when
+        Car actualCar = smartParkingBoy.fetch(parkingTicket);
+
+        //then
+        assertEquals(car, actualCar);
     }
 }
