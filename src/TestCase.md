@@ -109,12 +109,12 @@ Then return nothing with error message No available position
 
 #Story 5
 [] Case 1  
-Given a smart parking boy, who manage two parking lots both with available position, and a car
+Given a smart parking boy, who manage two parking lots both with available position, but parking lot 1 has more capacity, and a car
 When park the car
-Then the car will be parked to parking lot which contains more empty position
+Then the car will be parked to the first parking lot
 
 [] Case 2  
-Given a smart parking boy, who manage two parking lots, first us full and second with available position and a car  
+Given a smart parking boy, who manage two parking lots, but parking lot 2 has more capacity, and a car  
 When park the car  
 Then the car will be parked to second parking lot  
 
