@@ -47,10 +47,11 @@ public class ParkingLot {
         return this.capacity - parkedPosition.size();
     }
 
-    public int getLargerAvailablePercentage()
+    public double getLargerAvailablePercentage()
 
     {
-        return getAvailable() / this.capacity;
+        System.out.println((double) getAvailable() / this.capacity + " ASDFASDFASDFASDFASD");
+        return (double) getAvailable() / this.capacity;
     }
 
     public boolean isUnrecognizedTicket(ParkingTicket parkingTicket) {

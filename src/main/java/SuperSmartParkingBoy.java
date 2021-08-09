@@ -11,7 +11,8 @@ public class SuperSmartParkingBoy extends  StandardParkingBoy{
         ParkingLot mostLargerRatioAvailableSlot = null;
         for (ParkingLot parkingLot : parkingLots) {
             if (parkingLot.getAvailable() > 0) {
-                if (mostLargerRatioAvailableSlot == null || parkingLot.getLargerAvailablePercentage() > mostLargerRatioAvailableSlot.getLargerAvailablePercentage()) {
+                if (mostLargerRatioAvailableSlot == null || parkingLot.getLargerAvailablePercentage() >
+                        mostLargerRatioAvailableSlot.getLargerAvailablePercentage()) {
                     mostLargerRatioAvailableSlot = parkingLot;
                 }
             }
