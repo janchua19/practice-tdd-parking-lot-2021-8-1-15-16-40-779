@@ -3,7 +3,7 @@ import java.util.List;
 
 public class StandardParkingBoy {
     private ParkingLot parkingLot;
-    private List<ParkingLot> parkingLots = new ArrayList<>();
+    protected List<ParkingLot> parkingLots;
 
     public StandardParkingBoy (ParkingLot parkingLot){
         this(new ArrayList<ParkingLot>(){{
