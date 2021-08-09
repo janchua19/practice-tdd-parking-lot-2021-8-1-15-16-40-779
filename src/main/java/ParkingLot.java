@@ -6,26 +6,39 @@ public class ParkingLot {
     private Map<ParkingTicket, Car> parkedPosition = new HashMap<>();
     private Car car = new Car();
     private int capacity;
+    private int occupied;
+    private int available;
     private final int MAX_CAPACITY = 10;
 
     public ParkingLot()
     {
         this.capacity = MAX_CAPACITY;
+        this.available = available;
+        this.occupied = occupied;
     }
 
     public ParkingLot(int capacity){
         this.capacity = capacity;
+        this.available = available;
+        this.occupied = occupied;
+    }
+
+    public ParkingLot(int capacity, int occupied){
+        this.capacity = capacity;
+        this.occupied = occupied;
+        this.available = available;
     }
 
 
     public ParkingTicket park(Car car){
         ParkingTicket parkingTicket = new ParkingTicket();
+        available = getAvailable();
 
-        if(parkedPosition.size() == capacity) {
+        if(parkedPosition.size() == capacity || occupied == capacity) {
             throw new NoAvailablePosition();
         }
         else {
-            parkedPosition.put(parkingTicket, car);
+                parkedPosition.put(parkingTicket, car);
         }
         return parkingTicket;
     }
@@ -40,6 +53,10 @@ public class ParkingLot {
         final Car car = parkedPosition.get(parkingTicket);
         parkedPosition.remove(parkingTicket);
         return car;
+    }
+
+    public int getAvailable(){
+        return capacity - occupied;
     }
 
     public boolean isUnrecognizedTicket(ParkingTicket parkingTicket) {
