@@ -47,7 +47,6 @@ public class ParkingLot {
     }
 
     public double getLargerAvailablePercentage()
-
     {
         System.out.println((double) getAvailable() / this.capacity + " ASDFASDFASDFASDFASD");
         return (double) getAvailable() / this.capacity;

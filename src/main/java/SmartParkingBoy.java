@@ -29,7 +29,6 @@ public class SmartParkingBoy extends StandardParkingBoy{
                     return parkingLot.fetch(parkingTicket);
                 }
             }catch (UnrecognizedParkingTicketException e){
-
             }
         }
         throw new UnrecognizedParkingTicketException();

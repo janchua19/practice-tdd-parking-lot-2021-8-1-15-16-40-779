@@ -20,7 +20,6 @@ public class StandardParkingBoy {
             try{
                 return parkingLot.park(car);
             }catch (NoAvailablePosition e){
-
             }
         }
         throw new NoAvailablePosition();
@@ -33,7 +32,6 @@ public class StandardParkingBoy {
                     return parkingLot.fetch(parkingTicket);
                 }
             }catch (UnrecognizedParkingTicketException e){
-
             }
         }
         throw new UnrecognizedParkingTicketException();
