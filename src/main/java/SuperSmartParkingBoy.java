@@ -8,18 +8,18 @@ public class SuperSmartParkingBoy extends  StandardParkingBoy{
     }
 
     public ParkingTicket park(Car car){
-        ParkingLot mostAvailableSlots = null;
+        ParkingLot mostLargerRatioAvailableSlot = null;
         for (ParkingLot parkingLot : parkingLots) {
             if (parkingLot.getAvailable() > 0) {
-                if (mostAvailableSlots == null || parkingLot.getAvailable() > mostAvailableSlots.getAvailable()) {
-                    mostAvailableSlots = parkingLot;
+                if (mostLargerRatioAvailableSlot == null || parkingLot.getLargerAvailablePercentage() > mostLargerRatioAvailableSlot.getLargerAvailablePercentage()) {
+                    mostLargerRatioAvailableSlot = parkingLot;
                 }
             }
         }
-        if(mostAvailableSlots == null){
+        if(mostLargerRatioAvailableSlot == null){
             throw new NoAvailablePosition();
         }
-        return mostAvailableSlots.park(car);
+        return mostLargerRatioAvailableSlot.park(car);
     }
 
     public Car fetch(ParkingTicket parkingTicket){
