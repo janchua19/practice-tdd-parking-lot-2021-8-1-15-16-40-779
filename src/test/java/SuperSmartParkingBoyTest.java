@@ -64,18 +64,62 @@ public class SuperSmartParkingBoyTest{
         parkingLots.add(parkingLot1);
         parkingLots.add(parkingLot2);
 
-        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLots);
+        SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy(parkingLots);
 
-        ParkingTicket parkingTicket1 = smartParkingBoy.park(car1);
-        ParkingTicket parkingTicket2 = smartParkingBoy.park(car2);
+        ParkingTicket parkingTicket1 = superSmartParkingBoy.park(car1);
+        ParkingTicket parkingTicket2 = superSmartParkingBoy.park(car2);
 
         //when
-        Car actualCar1 = smartParkingBoy.fetch(parkingTicket1);
-        Car actualCar2 = smartParkingBoy.fetch(parkingTicket2);
+        Car actualCar1 = superSmartParkingBoy.fetch(parkingTicket1);
+        Car actualCar2 = superSmartParkingBoy.fetch(parkingTicket2);
 
         //then
         assertEquals(car1, actualCar1);
         assertEquals(car2, actualCar2);
+    }
 
+    @Test
+    public void should_return_nothing_with_error_message_unrecognized_parking_ticket_when_fetch_given_super_smart_parking_boy_who_manage_two_parking_lots_and_an_unrecognized_ticket (){
+        //given
+        ParkingLot parkingLot1 = new ParkingLot();
+        ParkingLot parkingLot2 = new ParkingLot();
+
+        ArrayList<ParkingLot> parkingLots = new ArrayList<>();
+
+        parkingLots.add(parkingLot1);
+        parkingLots.add(parkingLot2);
+
+        SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy(parkingLots);
+
+        ParkingTicket unrecognizedParkingTicket = new ParkingTicket();
+
+        //when
+        Exception exception = assertThrows(UnrecognizedParkingTicketException.class, () -> superSmartParkingBoy.fetch(unrecognizedParkingTicket));
+
+        //then
+        assertEquals("Unrecognized parking ticket.", exception.getMessage());
+    }
+
+    @Test
+    public void should_return_nothing_with_error_message_unrecognized_parking_ticket_when_fetch_given_a_super_smart_parking_boy_who_manage_two_parking_lots_and_a_used_ticket (){
+        //given
+        ParkingLot parkingLot1 = new ParkingLot();
+        ParkingLot parkingLot2 = new ParkingLot();
+
+        ArrayList<ParkingLot> parkingLots = new ArrayList<>();
+
+        parkingLots.add(parkingLot1);
+        parkingLots.add(parkingLot2);
+
+        SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy(parkingLots);
+
+        ParkingTicket usedParkingTicket = new ParkingTicket();
+
+        //when
+
+        Exception exception = assertThrows(UnrecognizedParkingTicketException.class, () -> superSmartParkingBoy.fetch(usedParkingTicket));
+
+        //then
+        assertEquals("Unrecognized parking ticket.", exception.getMessage());
     }
 }
