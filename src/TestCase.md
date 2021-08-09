@@ -108,32 +108,32 @@ When park the car
 Then return nothing with error message No available position
 
 #Story 5
-[] Case 1  
+[X] Case 1  
 Given a smart parking boy, who manage two parking lots both with available position, but parking lot 1 has more available position, and a car  
 When park the car  
 Then the car will be parked to the first parking lot
 
-[] Case 2  
+[X] Case 2  
 Given a smart parking boy, who manage two parking lots, but parking lot 2 has more available position, and a car  
 When park the car  
 Then the car will be parked to second parking lot  
 
-[] Case 3
+[X] Case 3
 Given a smart parking boy, who manage two parking lots, both with a parked car and two parking ticket  
 When fetch the car twice  
 Then return the right car with each ticket  
 
-[] Case 4
+[X] Case 4
 Given a smart parking boy, who manage two parking lots, and an unrecognized ticket  
 When customer fetch the car  
 Then return nothing with error message Unrecognized parking ticket
 
-[] Case 5  
+[X] Case 5  
 Given a smart parking boy, who manage two parking lots, and an used ticket   
 When fetch the car  
 Then return nothing with error message Unrecognized parking ticket
 
-[] Case 6  
+[X] Case 6  
 Given a smart parking boy, who manage two parking lots, both without available position and a car  
 When park the car  
 Then return nothing with error message No available position
